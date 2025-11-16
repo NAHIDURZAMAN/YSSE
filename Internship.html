@@ -146,6 +146,25 @@
       font-size: 18px;
     }
 
+    /* professional small collapse control in header */
+    .sidebar-header .collapse-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      color: var(--sidebar-text);
+      font-size: 16px;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 6px;
+      transition: background .15s ease;
+    }
+
+    .sidebar-header .collapse-btn:hover {
+      background: var(--sidebar-hover);
+    }
+
     /* MAIN CONTENT */
     .main-content {
       margin-left: 280px;
@@ -364,6 +383,61 @@
       }
     }
 
+    /* Mobile: show sidebar as a compact button-like mini bar by default */
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        top: 20px;
+        left: 10px;
+        width: 64px;
+        height: auto;
+        padding: 8px 6px;
+        border-radius: 10px;
+        transform: none !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        overflow: visible;
+      }
+
+      .sidebar .sidebar-header h2,
+      .sidebar .sidebar-header p {
+        display: none;
+      }
+
+      .sidebar .sidebar-nav a {
+        justify-content: center;
+        padding: 10px 6px;
+        border-left: none;
+      }
+
+      .sidebar .sidebar-nav a span {
+        display: none;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+
+      /* When the sidebar has .expanded (opened), make it full-screen like before */
+      .sidebar.expanded {
+        width: 280px;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        padding: 20px 0;
+        border-radius: 0;
+        transform: translateX(0) !important;
+      }
+
+      .sidebar.expanded .sidebar-header h2,
+      .sidebar.expanded .sidebar-header p {
+        display: block;
+      }
+
+      .sidebar.expanded .sidebar-nav a span {
+        display: inline-block;
+      }
+    }
+
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 32px;
@@ -419,20 +493,23 @@
   <!-- SIDEBAR NAVIGATION -->
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
-  <img class="img-fluid" src="https://scontent.fdac174-1.fna.fbcdn.net/v/t39.30808-6/481081327_941038564867107_6902313108263926463_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=JTjcgR__KIcQ7kNvwF3Lznk&_nc_oc=AdkcGeQ1JNq4Mkh0Y7r6spOhvSN_8Do9waIz1GvFv_er6KeW1wUGUjhzpNYn9qWAhYM&_nc_zt=23&_nc_ht=scontent.fdac174-1.fna&_nc_gid=ychWPPX_tfaCKvxT77gESQ&oh=00_Afjj6kqBs20UzqkNOmOgFJfXf5e9yklUQIlFcT7SG_FQ-g&oe=691EE60A" alt="YSSE Logo">
+      <img class="img-fluid" src="https://scontent.fdac174-1.fna.fbcdn.net/v/t39.30808-6/481081327_941038564867107_6902313108263926463_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=JTjcgR__KIcQ7kNvwF3Lznk&_nc_oc=AdkcGeQ1JNq4Mkh0Y7r6spOhvSN_8Do9waIz1GvFv_er6KeW1wUGUjhzpNYn9qWAhYM&_nc_zt=23&_nc_ht=scontent.fdac174-1.fna&_nc_gid=ychWPPX_tfaCKvxT77gESQ&oh=00_Afjj6kqBs20UzqkNOmOgFJfXf5e9yklUQIlFcT7SG_FQ-g&oe=691EE60A" alt="YSSE Logo">
+      <button class="collapse-btn" id="sidebarCollapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar">
+        <i class="fas fa-chevron-left"></i>
+      </button>
       <h2>YSSE Virtual Internship</h2>
       <p>Empowering Youth Since 2015</p>
     </div>
     
     <ul class="sidebar-nav">
-      <li><a href="#home" class="active"><i class="fas fa-home"></i> <span>Home</span></a></li>
-      <li><a href="#about"><i class="fas fa-info-circle"></i> <span>About YSSE</span></a></li>
-      <li><a href="#overview"><i class="fas fa-clipboard-list"></i> <span>Program Overview</span></a></li>
-      <li><a href="#objectives"><i class="fas fa-bullseye"></i> <span>Objectives</span></a></li>
-      <li><a href="#components"><i class="fas fa-puzzle-piece"></i> <span>Components</span></a></li>
-      <li><a href="#eligibility"><i class="fas fa-user-check"></i> <span>Eligibility</span></a></li>
-      <li><a href="#benefits"><i class="fas fa-gift"></i> <span>Benefits</span></a></li>
-      <li><a href="#departments"><i class="fas fa-building"></i> <span>Departments</span></a></li>
+      <li><a href="#home" class="active" data-bs-toggle="tooltip" title="Home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="#about" data-bs-toggle="tooltip" title="About YSSE"><i class="fas fa-info-circle"></i> <span>About YSSE</span></a></li>
+      <li><a href="#overview" data-bs-toggle="tooltip" title="Program Overview"><i class="fas fa-clipboard-list"></i> <span>Program Overview</span></a></li>
+      <li><a href="#objectives" data-bs-toggle="tooltip" title="Objectives"><i class="fas fa-bullseye"></i> <span>Objectives</span></a></li>
+      <li><a href="#components" data-bs-toggle="tooltip" title="Components"><i class="fas fa-puzzle-piece"></i> <span>Components</span></a></li>
+      <li><a href="#eligibility" data-bs-toggle="tooltip" title="Eligibility"><i class="fas fa-user-check"></i> <span>Eligibility</span></a></li>
+      <li><a href="#benefits" data-bs-toggle="tooltip" title="Benefits"><i class="fas fa-gift"></i> <span>Benefits</span></a></li>
+      <li><a href="#departments" data-bs-toggle="tooltip" title="Departments"><i class="fas fa-building"></i> <span>Departments</span></a></li>
     </ul>
   </div>
 
@@ -713,6 +790,42 @@
       });
     });
 
+    // Make sidebar look like a small button on mobile by default (and expand when toggled)
+    function setMobileSidebarBehavior() {
+      if (window.innerWidth <= 768) {
+        sidebar.classList.add('mobile-minified');
+      } else {
+        sidebar.classList.remove('mobile-minified');
+        sidebar.classList.remove('expanded');
+      }
+    }
+
+    // Update toggleSidebar to respect mobile-minified state: when closing on mobile, restore minified
+    const originalToggle = toggleSidebar;
+    function mobileAwareToggle() {
+      originalToggle();
+      // if mobile and sidebar is not active, ensure minified state
+      if (window.innerWidth <= 768) {
+        if (!sidebar.classList.contains('active')) {
+          // closed -> ensure compact look
+          sidebar.classList.add('mobile-minified');
+          sidebar.classList.remove('expanded');
+        } else {
+          // opened -> expand
+          sidebar.classList.remove('mobile-minified');
+          sidebar.classList.add('expanded');
+        }
+      }
+    }
+
+    // Replace handler with mobile-aware one
+    mobileNavToggle.removeEventListener('click', toggleSidebar);
+    mobileNavToggle.addEventListener('click', mobileAwareToggle);
+
+    // Run on load and on resize
+    setMobileSidebarBehavior();
+    window.addEventListener('resize', setMobileSidebarBehavior);
+
     // Smooth scrolling for navigation links
     document.querySelectorAll('.sidebar-nav a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -786,6 +899,33 @@
 
     // Run once on load in case page is opened mid-scroll
     onScrollMinify();
+
+    // Initialize Bootstrap tooltips for sidebar icons
+    document.addEventListener('DOMContentLoaded', function () {
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl, {placement: 'right'});
+      });
+    });
+
+    // Sidebar collapse button (desktop): toggle minified state
+    const sidebarCollapseBtn = document.getElementById('sidebarCollapseBtn');
+    if (sidebarCollapseBtn) {
+      sidebarCollapseBtn.addEventListener('click', function () {
+        const isMin = sidebar.classList.toggle('minified');
+        if (isMin) {
+          mainEl.classList.add('minified');
+          this.querySelector('i').classList.remove('fa-chevron-left');
+          this.querySelector('i').classList.add('fa-chevron-right');
+          this.setAttribute('title', 'Expand sidebar');
+        } else {
+          mainEl.classList.remove('minified');
+          this.querySelector('i').classList.remove('fa-chevron-right');
+          this.querySelector('i').classList.add('fa-chevron-left');
+          this.setAttribute('title', 'Collapse sidebar');
+        }
+      });
+    }
   </script>
 </body>
 </html>
