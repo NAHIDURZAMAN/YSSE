@@ -530,3 +530,19 @@ li {
     font-size: 14px;
   }
 }
+
+/* Overrides to remove sidebar and ensure main content is full-width */
+.bootstrap-sidebar,
+.sidebar,
+.mobile-nav-toggle,
+.sidebar-overlay,
+.show-sidebar-btn,
+ #offcanvasSidebar,
+aside.bootstrap-sidebar {
+  display: none !important;
+}
+
+.main-content {
+  margin-left: 0 !important;
+  padding: 20px !important;
+}

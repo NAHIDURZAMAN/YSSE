@@ -19,80 +19,7 @@
 </head>
 
 <body>
-  <!-- MOBILE NAVIGATION TOGGLE -->
-  <button class="mobile-nav-toggle d-lg-none" id="mobileNavToggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
-    <i class="fas fa-bars"></i>
-  </button>
-
-  <!-- OVERLAY FOR MOBILE -->
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-  <!-- New Bootstrap Offcanvas (mobile) -->
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasSidebarLabel">YSSE</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="text-center mb-3">
-        <img src="https://scontent.fdac174-1.fna.fbcdn.net/v/t39.30808-6/481081327_941038564867107_6902313108263926463_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=JTjcgR__KIcQ7kNvwF3Lznk&_nc_oc=AdkcGeQ1JNq4Mkh0Y7r6spOhvSN_8Do9waIz1GvFv_er6KeW1wUGUjhzpNYn9qWAhYM&_nc_zt=23&_nc_ht=scontent.fdac174-1.fna&_nc_gid=ychWPPX_tfaCKvxT77gESQ&oh=00_Afjj6kqBs20UzqkNOmOgFJfXf5e9yklUQIlFcT7SG_FQ-g&oe=691EE60A" class="img-fluid" style="max-height:60px" alt="YSSE Logo">
-      </div>
-      <nav class="nav flex-column">
-        <a class="nav-link" href="#home"><i class="fas fa-home me-2"></i> Home</a>
-        <a class="nav-link" href="#about"><i class="fas fa-info-circle me-2"></i> About YSSE</a>
-        <a class="nav-link" href="#overview"><i class="fas fa-clipboard-list me-2"></i> Program Overview</a>
-        <a class="nav-link" href="#objectives"><i class="fas fa-bullseye me-2"></i> Objectives</a>
-        <a class="nav-link" href="#components"><i class="fas fa-puzzle-piece me-2"></i> Components</a>
-        <a class="nav-link" href="#eligibility"><i class="fas fa-user-check me-2"></i> Eligibility</a>
-        <a class="nav-link" href="#benefits"><i class="fas fa-gift me-2"></i> Benefits</a>
-        <a class="nav-link" href="#departments"><i class="fas fa-building me-2"></i> Departments</a>
-      </nav>
-    </div>
-  </div>
-
-  <!-- New Desktop Bootstrap Sidebar -->
-  <aside class="bootstrap-sidebar d-none d-lg-flex flex-column" aria-label="Main navigation">
-    <div class="text-center mb-3">
-      <img src="https://scontent.fdac174-1.fna.fbcdn.net/v/t39.30808-6/481081327_941038564867107_6902313108263926463_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=JTjcgR__KIcQ7kNvwF3Lznk&_nc_oc=AdkcGeQ1JNq4Mkh0Y7r6spOhvSN_8Do9waIz1GvFv_er6KeW1wUGUjhzpNYn9qWAhYM&_nc_zt=23&_nc_ht=scontent.fdac174-1.fna&_nc_gid=ychWPPX_tfaCKvxT77gESQ&oh=00_Afjj6kqBs20UzqkNOmOgFJfXf5e9yklUQIlFcT7SG_FQ-g&oe=691EE60A" class="img-fluid" style="max-height:60px" alt="YSSE Logo">
-      <h5 class="mt-2">YSSE Virtual Internship</h5>
-    </div>
-    <nav class="nav flex-column">
-      <a class="nav-link" href="#home"><i class="fas fa-home me-2"></i> Home</a>
-      <a class="nav-link" href="#about"><i class="fas fa-info-circle me-2"></i> About YSSE</a>
-      <a class="nav-link" href="#overview"><i class="fas fa-clipboard-list me-2"></i> Program Overview</a>
-      <a class="nav-link" href="#objectives"><i class="fas fa-bullseye me-2"></i> Objectives</a>
-      <a class="nav-link" href="#components"><i class="fas fa-puzzle-piece me-2"></i> Components</a>
-      <a class="nav-link" href="#eligibility"><i class="fas fa-user-check me-2"></i> Eligibility</a>
-      <a class="nav-link" href="#benefits"><i class="fas fa-gift me-2"></i> Benefits</a>
-      <a class="nav-link" href="#departments"><i class="fas fa-building me-2"></i> Departments</a>
-    </nav>
-  </aside>
-
-  <!-- SIDEBAR NAVIGATION -->
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <img class="img-fluid" src="https://scontent.fdac174-1.fna.fbcdn.net/v/t39.30808-6/481081327_941038564867107_6902313108263926463_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=JTjcgR__KIcQ7kNvwF3Lznk&_nc_oc=AdkcGeQ1JNq4Mkh0Y7r6spOhvSN_8Do9waIz1GvFv_er6KeW1wUGUjhzpNYn9qWAhYM&_nc_zt=23&_nc_ht=scontent.fdac174-1.fna&_nc_gid=ychWPPX_tfaCKvxT77gESQ&oh=00_Afjj6kqBs20UzqkNOmOgFJfXf5e9yklUQIlFcT7SG_FQ-g&oe=691EE60A" alt="YSSE Logo">
-      <button class="collapse-btn" id="sidebarCollapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <button class="collapse-btn" id="sidebarHideBtn" aria-label="Hide sidebar" title="Hide sidebar">
-        <i class="fas fa-eye-slash"></i>
-      </button>
-      <h2>YSSE Virtual Internship</h2>
-      <p>Empowering Youth Since 2015</p>
-    </div>
-    
-    <ul class="sidebar-nav">
-      <li><a href="#home" class="active" data-bs-toggle="tooltip" title="Home"><i class="fas fa-home"></i> <span>Home</span></a></li>
-      <li><a href="#about" data-bs-toggle="tooltip" title="About YSSE"><i class="fas fa-info-circle"></i> <span>About YSSE</span></a></li>
-      <li><a href="#overview" data-bs-toggle="tooltip" title="Program Overview"><i class="fas fa-clipboard-list"></i> <span>Program Overview</span></a></li>
-      <li><a href="#objectives" data-bs-toggle="tooltip" title="Objectives"><i class="fas fa-bullseye"></i> <span>Objectives</span></a></li>
-      <li><a href="#components" data-bs-toggle="tooltip" title="Components"><i class="fas fa-puzzle-piece"></i> <span>Components</span></a></li>
-      <li><a href="#eligibility" data-bs-toggle="tooltip" title="Eligibility"><i class="fas fa-user-check"></i> <span>Eligibility</span></a></li>
-      <li><a href="#benefits" data-bs-toggle="tooltip" title="Benefits"><i class="fas fa-gift"></i> <span>Benefits</span></a></li>
-      <li><a href="#departments" data-bs-toggle="tooltip" title="Departments"><i class="fas fa-building"></i> <span>Departments</span></a></li>
-    </ul>
-  </div>
+  <!-- Sidebar removed as requested -->
 
   <!-- MAIN CONTENT -->
   <div class="main-content">
@@ -330,10 +257,7 @@
     </footer>
   </div>
 
-  <!-- Floating button to show the sidebar when user hid it -->
-  <button id="showSidebarBtn" class="show-sidebar-btn hidden" aria-label="Show sidebar" title="Show sidebar">
-    <i class="fas fa-angle-right"></i>
-  </button>
+  <!-- Sidebar removed: floating show button removed -->
 
   <!-- Bootstrap JS Bundle -->
   <!-- Local fallback for offline use -->
@@ -342,236 +266,18 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   
   <script>
-    // Mobile navigation toggle
-    const mobileNavToggle = document.getElementById('mobileNavToggle');
-    const sidebar = document.getElementById('sidebar');
-    const sidebarOverlay = document.getElementById('sidebarOverlay');
-    
-    function toggleSidebar() {
-      sidebar.classList.toggle('active');
-      sidebarOverlay.classList.toggle('active');
-      
-      // Change icon based on sidebar state
-      const icon = mobileNavToggle.querySelector('i');
-      if (sidebar.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    }
-    
-    mobileNavToggle.addEventListener('click', toggleSidebar);
-    
-    // Close sidebar when clicking overlay
-    sidebarOverlay.addEventListener('click', toggleSidebar);
-    
-    // Close sidebar when clicking a link on mobile
-    document.querySelectorAll('.sidebar-nav a').forEach(link => {
-      link.addEventListener('click', function() {
-        if (window.innerWidth <= 992) {
-          toggleSidebar();
+    // Small script: enable smooth scrolling for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({ top: target.offsetTop - 20, behavior: 'smooth' });
         }
       });
     });
-
-    // Make sidebar look like a small button on mobile by default (and expand when toggled)
-    function setMobileSidebarBehavior() {
-      if (window.innerWidth <= 768) {
-        sidebar.classList.add('mobile-minified');
-      } else {
-        sidebar.classList.remove('mobile-minified');
-        sidebar.classList.remove('expanded');
-      }
-    }
-
-    // Update toggleSidebar to respect mobile-minified state: when closing on mobile, restore minified
-    const originalToggle = toggleSidebar;
-    function mobileAwareToggle() {
-        originalToggle();
-        // if mobile and using offcanvas, toggle the bootstrap offcanvas component
-        if (window.innerWidth <= 768) {
-          const offEl = document.getElementById('offcanvasSidebar');
-          if (offEl) {
-            const bsOff = bootstrap.Offcanvas.getOrCreateInstance(offEl);
-            if (!offEl.classList.contains('show')) {
-              bsOff.show();
-            } else {
-              bsOff.hide();
-            }
-          }
-
-          if (!sidebar.classList.contains('active')) {
-            // closed -> ensure compact look
-            sidebar.classList.add('mobile-minified');
-            sidebar.classList.remove('expanded');
-          } else {
-            // opened -> expand
-            sidebar.classList.remove('mobile-minified');
-            sidebar.classList.add('expanded');
-          }
-        }
-    }
-
-    // Replace handler with mobile-aware one
-    mobileNavToggle.removeEventListener('click', toggleSidebar);
-    mobileNavToggle.addEventListener('click', mobileAwareToggle);
-
-    // Run on load and on resize
-    setMobileSidebarBehavior();
-    window.addEventListener('resize', setMobileSidebarBehavior);
-
-    // Adjust main-content margin for new desktop bootstrap sidebar
-    function updateBootstrapShift() {
-      const main = document.querySelector('.main-content');
-      if (!main) return;
-      if (window.innerWidth >= 992) {
-        main.classList.add('bootstrap-shift');
-      } else {
-        main.classList.remove('bootstrap-shift');
-      }
-    }
-    updateBootstrapShift();
-    window.addEventListener('resize', updateBootstrapShift);
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('.sidebar-nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        window.scrollTo({
-          top: targetElement.offsetTop - 20,
-          behavior: 'smooth'
-        });
-        
-        // Update active class
-        document.querySelectorAll('.sidebar-nav a').forEach(link => {
-          link.classList.remove('active');
-        });
-        this.classList.add('active');
-      });
-    });
-    
-    // Update active nav item on scroll
-    window.addEventListener('scroll', function() {
-      const sections = document.querySelectorAll('.section, .hero');
-      const navLinks = document.querySelectorAll('.sidebar-nav a');
-      
-      let currentSection = '';
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (pageYOffset >= sectionTop - 100) {
-          currentSection = section.getAttribute('id');
-        }
-      });
-      
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) {
-          link.classList.add('active');
-        }
-      });
-    });
-
-    // Collapse sidebar to a button-like minified bar when user scrolls down
-    const onScrollMinify = () => {
-      const sidebarEl = document.getElementById('sidebar');
-      const mainEl = document.querySelector('.main-content');
-      const threshold = 150; // px scrolled before minify
-      if (window.pageYOffset > threshold) {
-        sidebarEl.classList.add('minified');
-        mainEl.classList.add('minified');
-      } else {
-        sidebarEl.classList.remove('minified');
-        mainEl.classList.remove('minified');
-      }
-    };
-
-    // Debounced scroll listener for performance
-    let scrollTimer = null;
-    window.addEventListener('scroll', function() {
-      if (scrollTimer !== null) {
-        clearTimeout(scrollTimer);
-      }
-      scrollTimer = setTimeout(function() {
-        onScrollMinify();
-        scrollTimer = null;
-      }, 50);
-    });
-
-    // Run once on load in case page is opened mid-scroll
-    onScrollMinify();
-
-    // Initialize Bootstrap tooltips for sidebar icons
-    document.addEventListener('DOMContentLoaded', function () {
-      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-      tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl, {placement: 'right'});
-      });
-    });
-
-    // Sidebar collapse button (desktop): toggle minified state
-    const sidebarCollapseBtn = document.getElementById('sidebarCollapseBtn');
-    if (sidebarCollapseBtn) {
-      sidebarCollapseBtn.addEventListener('click', function () {
-        const isMin = sidebar.classList.toggle('minified');
-        if (isMin) {
-          mainEl.classList.add('minified');
-          this.querySelector('i').classList.remove('fa-chevron-left');
-          this.querySelector('i').classList.add('fa-chevron-right');
-          this.setAttribute('title', 'Expand sidebar');
-        } else {
-          mainEl.classList.remove('minified');
-          this.querySelector('i').classList.remove('fa-chevron-right');
-          this.querySelector('i').classList.add('fa-chevron-left');
-          this.setAttribute('title', 'Collapse sidebar');
-        }
-      });
-    }
-
-    // Hide sidebar permanently (user choice) and show floating button to restore
-    const sidebarHideBtn = document.getElementById('sidebarHideBtn');
-    const showSidebarBtn = document.getElementById('showSidebarBtn');
-
-    function applyHiddenState(hidden) {
-      if (hidden) {
-        sidebar.classList.add('hidden');
-        mainEl.classList.add('hidden-sidebar');
-        if (showSidebarBtn) showSidebarBtn.classList.remove('hidden');
-      } else {
-        sidebar.classList.remove('hidden');
-        mainEl.classList.remove('hidden-sidebar');
-        if (showSidebarBtn) showSidebarBtn.classList.add('hidden');
-      }
-      try { localStorage.setItem('ysse_sidebar_hidden', hidden ? '1' : '0'); } catch (e) {}
-    }
-
-    if (sidebarHideBtn) {
-      sidebarHideBtn.addEventListener('click', function () {
-        applyHiddenState(true);
-      });
-    }
-
-    if (showSidebarBtn) {
-      showSidebarBtn.addEventListener('click', function () {
-        applyHiddenState(false);
-      });
-    }
-
-    // Load persisted hidden state
-    try {
-      const persisted = localStorage.getItem('ysse_sidebar_hidden');
-      if (persisted === '1') {
-        applyHiddenState(true);
-      }
-    } catch (e) {}
   </script>
 </body>
 </html>
