@@ -50,6 +50,35 @@
       box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
     }
 
+    /* Minified/collapsed sidebar (shows as compact button-like bar) */
+    .sidebar.minified {
+      width: 64px;
+      padding: 10px 6px;
+    }
+
+    .sidebar.minified .sidebar-header h2,
+    .sidebar.minified .sidebar-header p {
+      display: none;
+    }
+
+    .sidebar.minified .sidebar-header img {
+      max-height: 40px;
+    }
+
+    .sidebar.minified .sidebar-nav a {
+      justify-content: center;
+      padding: 12px 6px;
+      border-left: none;
+    }
+
+    .sidebar.minified .sidebar-nav a span {
+      display: none;
+    }
+
+    .main-content.minified {
+      margin-left: 64px;
+    }
+
     .sidebar-header {
       padding: 0 20px 20px;
       border-bottom: 1px solid var(--light-gray);
@@ -728,6 +757,35 @@
         }
       });
     });
+
+    // Collapse sidebar to a button-like minified bar when user scrolls down
+    const onScrollMinify = () => {
+      const sidebarEl = document.getElementById('sidebar');
+      const mainEl = document.querySelector('.main-content');
+      const threshold = 150; // px scrolled before minify
+      if (window.pageYOffset > threshold) {
+        sidebarEl.classList.add('minified');
+        mainEl.classList.add('minified');
+      } else {
+        sidebarEl.classList.remove('minified');
+        mainEl.classList.remove('minified');
+      }
+    };
+
+    // Debounced scroll listener for performance
+    let scrollTimer = null;
+    window.addEventListener('scroll', function() {
+      if (scrollTimer !== null) {
+        clearTimeout(scrollTimer);
+      }
+      scrollTimer = setTimeout(function() {
+        onScrollMinify();
+        scrollTimer = null;
+      }, 50);
+    });
+
+    // Run once on load in case page is opened mid-scroll
+    onScrollMinify();
   </script>
 </body>
 </html>
