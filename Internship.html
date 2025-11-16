@@ -79,6 +79,42 @@
       margin-left: 64px;
     }
 
+    /* Hidden sidebar state (user chose to hide permanently) */
+    .sidebar.hidden {
+      transform: translateX(-120%) !important;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .main-content.hidden-sidebar {
+      margin-left: 0 !important;
+    }
+
+    /* Floating show button visible when sidebar is hidden */
+    .show-sidebar-btn {
+      position: fixed;
+      top: 20px;
+      left: 12px;
+      z-index: 1100;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: var(--green);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .show-sidebar-btn.hidden {
+      display: none;
+    }
+
     .sidebar-header {
       padding: 0 20px 20px;
       border-bottom: 1px solid var(--light-gray);
@@ -497,6 +533,9 @@
       <button class="collapse-btn" id="sidebarCollapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar">
         <i class="fas fa-chevron-left"></i>
       </button>
+      <button class="collapse-btn" id="sidebarHideBtn" aria-label="Hide sidebar" title="Hide sidebar">
+        <i class="fas fa-eye-slash"></i>
+      </button>
       <h2>YSSE Virtual Internship</h2>
       <p>Empowering Youth Since 2015</p>
     </div>
@@ -749,6 +788,11 @@
     </footer>
   </div>
 
+  <!-- Floating button to show the sidebar when user hid it -->
+  <button id="showSidebarBtn" class="show-sidebar-btn hidden" aria-label="Show sidebar" title="Show sidebar">
+    <i class="fas fa-angle-right"></i>
+  </button>
+
   <!-- Bootstrap JS Bundle -->
   <!-- Local fallback for offline use -->
   <script src="assets/js/bootstrap.bundle.min.js"></script>
@@ -926,6 +970,43 @@
         }
       });
     }
+
+    // Hide sidebar permanently (user choice) and show floating button to restore
+    const sidebarHideBtn = document.getElementById('sidebarHideBtn');
+    const showSidebarBtn = document.getElementById('showSidebarBtn');
+
+    function applyHiddenState(hidden) {
+      if (hidden) {
+        sidebar.classList.add('hidden');
+        mainEl.classList.add('hidden-sidebar');
+        if (showSidebarBtn) showSidebarBtn.classList.remove('hidden');
+      } else {
+        sidebar.classList.remove('hidden');
+        mainEl.classList.remove('hidden-sidebar');
+        if (showSidebarBtn) showSidebarBtn.classList.add('hidden');
+      }
+      try { localStorage.setItem('ysse_sidebar_hidden', hidden ? '1' : '0'); } catch (e) {}
+    }
+
+    if (sidebarHideBtn) {
+      sidebarHideBtn.addEventListener('click', function () {
+        applyHiddenState(true);
+      });
+    }
+
+    if (showSidebarBtn) {
+      showSidebarBtn.addEventListener('click', function () {
+        applyHiddenState(false);
+      });
+    }
+
+    // Load persisted hidden state
+    try {
+      const persisted = localStorage.getItem('ysse_sidebar_hidden');
+      if (persisted === '1') {
+        applyHiddenState(true);
+      }
+    } catch (e) {}
   </script>
 </body>
 </html>
