@@ -50,6 +50,39 @@
       box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
     }
 
+    /* Hide legacy custom sidebar (replaced by Bootstrap offcanvas/sidebar) */
+    #sidebar { display: none !important; }
+
+    /* New Bootstrap-based desktop sidebar */
+    .bootstrap-sidebar {
+      width: 260px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      padding: 20px;
+      background: var(--sidebar-bg);
+      box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+      z-index: 1030;
+      overflow-y: auto;
+    }
+
+    .bootstrap-sidebar .nav-link {
+      color: var(--sidebar-text);
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+    }
+
+    .main-content.bootstrap-shift {
+      margin-left: 260px;
+    }
+
+    @media (max-width: 991px) {
+      .bootstrap-sidebar { display: none; }
+      .main-content.bootstrap-shift { margin-left: 0; }
+    }
+
     /* Minified/collapsed sidebar (shows as compact button-like bar) */
     .sidebar.minified {
       width: 64px;
@@ -519,12 +552,53 @@
 
 <body>
   <!-- MOBILE NAVIGATION TOGGLE -->
-  <button class="mobile-nav-toggle" id="mobileNavToggle">
+  <button class="mobile-nav-toggle d-lg-none" id="mobileNavToggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
     <i class="fas fa-bars"></i>
   </button>
 
   <!-- OVERLAY FOR MOBILE -->
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- New Bootstrap Offcanvas (mobile) -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasSidebarLabel">YSSE</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="text-center mb-3">
+        <img src="https://scontent.fdac174-1.fna.fbcdn.net/v/t39.30808-6/481081327_941038564867107_6902313108263926463_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=JTjcgR__KIcQ7kNvwF3Lznk&_nc_oc=AdkcGeQ1JNq4Mkh0Y7r6spOhvSN_8Do9waIz1GvFv_er6KeW1wUGUjhzpNYn9qWAhYM&_nc_zt=23&_nc_ht=scontent.fdac174-1.fna&_nc_gid=ychWPPX_tfaCKvxT77gESQ&oh=00_Afjj6kqBs20UzqkNOmOgFJfXf5e9yklUQIlFcT7SG_FQ-g&oe=691EE60A" class="img-fluid" style="max-height:60px" alt="YSSE Logo">
+      </div>
+      <nav class="nav flex-column">
+        <a class="nav-link" href="#home"><i class="fas fa-home me-2"></i> Home</a>
+        <a class="nav-link" href="#about"><i class="fas fa-info-circle me-2"></i> About YSSE</a>
+        <a class="nav-link" href="#overview"><i class="fas fa-clipboard-list me-2"></i> Program Overview</a>
+        <a class="nav-link" href="#objectives"><i class="fas fa-bullseye me-2"></i> Objectives</a>
+        <a class="nav-link" href="#components"><i class="fas fa-puzzle-piece me-2"></i> Components</a>
+        <a class="nav-link" href="#eligibility"><i class="fas fa-user-check me-2"></i> Eligibility</a>
+        <a class="nav-link" href="#benefits"><i class="fas fa-gift me-2"></i> Benefits</a>
+        <a class="nav-link" href="#departments"><i class="fas fa-building me-2"></i> Departments</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- New Desktop Bootstrap Sidebar -->
+  <aside class="bootstrap-sidebar d-none d-lg-flex flex-column" aria-label="Main navigation">
+    <div class="text-center mb-3">
+      <img src="https://scontent.fdac174-1.fna.fbcdn.net/v/t39.30808-6/481081327_941038564867107_6902313108263926463_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=JTjcgR__KIcQ7kNvwF3Lznk&_nc_oc=AdkcGeQ1JNq4Mkh0Y7r6spOhvSN_8Do9waIz1GvFv_er6KeW1wUGUjhzpNYn9qWAhYM&_nc_zt=23&_nc_ht=scontent.fdac174-1.fna&_nc_gid=ychWPPX_tfaCKvxT77gESQ&oh=00_Afjj6kqBs20UzqkNOmOgFJfXf5e9yklUQIlFcT7SG_FQ-g&oe=691EE60A" class="img-fluid" style="max-height:60px" alt="YSSE Logo">
+      <h5 class="mt-2">YSSE Virtual Internship</h5>
+    </div>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#home"><i class="fas fa-home me-2"></i> Home</a>
+      <a class="nav-link" href="#about"><i class="fas fa-info-circle me-2"></i> About YSSE</a>
+      <a class="nav-link" href="#overview"><i class="fas fa-clipboard-list me-2"></i> Program Overview</a>
+      <a class="nav-link" href="#objectives"><i class="fas fa-bullseye me-2"></i> Objectives</a>
+      <a class="nav-link" href="#components"><i class="fas fa-puzzle-piece me-2"></i> Components</a>
+      <a class="nav-link" href="#eligibility"><i class="fas fa-user-check me-2"></i> Eligibility</a>
+      <a class="nav-link" href="#benefits"><i class="fas fa-gift me-2"></i> Benefits</a>
+      <a class="nav-link" href="#departments"><i class="fas fa-building me-2"></i> Departments</a>
+    </nav>
+  </aside>
 
   <!-- SIDEBAR NAVIGATION -->
   <div class="sidebar" id="sidebar">
@@ -847,19 +921,29 @@
     // Update toggleSidebar to respect mobile-minified state: when closing on mobile, restore minified
     const originalToggle = toggleSidebar;
     function mobileAwareToggle() {
-      originalToggle();
-      // if mobile and sidebar is not active, ensure minified state
-      if (window.innerWidth <= 768) {
-        if (!sidebar.classList.contains('active')) {
-          // closed -> ensure compact look
-          sidebar.classList.add('mobile-minified');
-          sidebar.classList.remove('expanded');
-        } else {
-          // opened -> expand
-          sidebar.classList.remove('mobile-minified');
-          sidebar.classList.add('expanded');
+        originalToggle();
+        // if mobile and using offcanvas, toggle the bootstrap offcanvas component
+        if (window.innerWidth <= 768) {
+          const offEl = document.getElementById('offcanvasSidebar');
+          if (offEl) {
+            const bsOff = bootstrap.Offcanvas.getOrCreateInstance(offEl);
+            if (!offEl.classList.contains('show')) {
+              bsOff.show();
+            } else {
+              bsOff.hide();
+            }
+          }
+
+          if (!sidebar.classList.contains('active')) {
+            // closed -> ensure compact look
+            sidebar.classList.add('mobile-minified');
+            sidebar.classList.remove('expanded');
+          } else {
+            // opened -> expand
+            sidebar.classList.remove('mobile-minified');
+            sidebar.classList.add('expanded');
+          }
         }
-      }
     }
 
     // Replace handler with mobile-aware one
@@ -869,6 +953,19 @@
     // Run on load and on resize
     setMobileSidebarBehavior();
     window.addEventListener('resize', setMobileSidebarBehavior);
+
+    // Adjust main-content margin for new desktop bootstrap sidebar
+    function updateBootstrapShift() {
+      const main = document.querySelector('.main-content');
+      if (!main) return;
+      if (window.innerWidth >= 992) {
+        main.classList.add('bootstrap-shift');
+      } else {
+        main.classList.remove('bootstrap-shift');
+      }
+    }
+    updateBootstrapShift();
+    window.addEventListener('resize', updateBootstrapShift);
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('.sidebar-nav a').forEach(anchor => {
